@@ -25,8 +25,6 @@ function startBall() {
 	leftSpeedOfBall = side * (Math.random() * 6 + 5);
 };
 
-//Keep track of the up and down values
-
 document.addEventListener('keydown', function (e) {
      if (e.keyCode == 87 || e.which == 87) { // W key
       speedOfPaddle1 = -10;
@@ -42,7 +40,7 @@ document.addEventListener('keydown', function (e) {
      }
 }, false);
 
-// 3.stops the paddle when key is let go
+
 document.addEventListener('keyup', function (e) {
 	if (e.keyCode == 87 || e.which == 87) {
 		speedOfPaddle1 = 0;
@@ -58,7 +56,7 @@ document.addEventListener('keyup', function (e) {
 	}
 }, false);
 
-//4. This function gets called 60 times per second
+
 window.setInterval(function show() {
 
 	positionOfPaddle1 += speedOfPaddle1;
@@ -67,7 +65,7 @@ window.setInterval(function show() {
 	topPositionOfBall += topSpeedOfBall;
 	leftPositionOfBall += leftSpeedOfBall;
 
-// 6.if the paddle is 1px away from edge of screen stop the paddle from moving beyond that point
+
 	if (positionOfPaddle1 <= 1) {
 		positionOfPaddle1 = 1;
 	}
@@ -87,21 +85,28 @@ window.setInterval(function show() {
 	if (leftPositionOfBall <= paddleWidth){
 	    if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight){
 	        leftSpeedOfBall = -leftSpeedOfBall;
+	        var audio = new Audio('mixkit-retro-game-notification-212.wav')
+                        audio.play()
         }else {
             score2++;
-            var audio = new Audio('mixkit-retro-game-notification-212.wav')
-            audio.play()
+            var audio = new Audio('mixkit-falling-empty-can-389.wav')
+                        audio.play()
             startBall()}
 	}
 	if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth){
         if (topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeight){
             leftSpeedOfBall = -leftSpeedOfBall;
+            var audio = new Audio('mixkit-retro-game-notification-212.wav')
+                                    audio.play()
         }else {
             score1++
-            var audio = new Audio('mixkit-retro-game-notification-212.wav')
-            audio.play()
+            var audio = new Audio('mixkit-falling-empty-can-389.wav')
+                        audio.play()
             startBall()}
     }
+
+    //Make it Single Player
+    //positionOfPaddle2 = topPositionOfBall
 
 	document.getElementById("paddle1").style.top = (positionOfPaddle1) + "px";
 	document.getElementById("paddle2").style.top = (positionOfPaddle2) + "px";
