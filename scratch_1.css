@@ -1,0 +1,39 @@
+body{
+    background-color:#FFDB58;}
+
+#paddle1 {
+    position:absolute;
+    left:0px;
+    top:460px;
+    width:30px;
+    height:150px;
+    background-color: black;
+    border-radius: 10px;
+}
+#paddle2 {
+    position:absolute;
+    right:0px;
+    top:460px;
+    width:30px;
+    height:150px;
+    background-color:black;
+    border-radius: 10px;
+}
+#ball {
+    position:absolute;
+    left:820px;top:510px;
+    width:25px;
+    height:25px;
+    background-color:black;
+    border-radius:50%;
+}
+#score{
+    display:flex;
+    justify-content:space-around;
+    font-size: 100px;
+    font-family: cursive;}
+#net{
+    border-left:6px solid black;
+    height:200%;
+    left:50%;
+    position:fixed;}
