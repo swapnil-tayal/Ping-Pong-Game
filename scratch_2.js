@@ -86,22 +86,22 @@ window.setInterval(function show() {
 	    if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight){
 	        leftSpeedOfBall = -leftSpeedOfBall;
 	        var audio = new Audio('mixkit-retro-game-notification-212.wav')
-                        audio.play()
+		audio.play()
         }else {
             score2++;
             var audio = new Audio('mixkit-falling-empty-can-389.wav')
-                        audio.play()
+	    audio.play()
             startBall()}
 	}
 	if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth){
         if (topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeight){
             leftSpeedOfBall = -leftSpeedOfBall;
             var audio = new Audio('mixkit-retro-game-notification-212.wav')
-                                    audio.play()
+	    audio.play()
         }else {
             score1++
             var audio = new Audio('mixkit-falling-empty-can-389.wav')
-                        audio.play()
+	    audio.play()
             startBall()}
     }
 
